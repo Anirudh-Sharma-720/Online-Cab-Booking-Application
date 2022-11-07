@@ -1,9 +1,14 @@
 package com.entities;
 
+import javax.persistence.*;
+
+@Entity
 public class Cab {
+	@Id
 	private int cabId;
 	private String carType;
 	private float perKmRate;
+	
 	public int getCabId() {
 		return cabId;
 	}
