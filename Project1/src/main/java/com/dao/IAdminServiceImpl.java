@@ -3,8 +3,8 @@ import com.service.*;
 import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
+import com.exception.*;
+import java.sql.Timestamp;
 import com.entities.*;
 import com.repository.IAdminRepository;
 import com.repository.ITripBookingRepository;
@@ -25,16 +25,22 @@ public class IAdminServiceImpl implements IAdminService{
 	}
 
 	@Override
-	public Admin updateAdmin(Admin admin) {
+	public Admin updateAdminName(Admin admin,String name) throws AdminNotFoundException{
 		// TODO Auto-generated method stub
-		return null;
+		Admin adminObj = repo.findById(admin.getAdminId()).orElseThrow(()->new AdminNotFoundException("Admin with that id does not exist"));
+		admin.setUsername(name);
+		if(repo.existsById(admin.getAdminId())) {
+			repo.deleteById(admin.getAdminId());
+		
+		}
+		return repo.save(adminObj);
 	}
 
 	@Override
-	public Admin deleteAdmin(int adminId) {
+	public Admin deleteAdmin(int adminId) throws AdminNotFoundException{
 		// TODO Auto-generated method stub
 		
-		Admin ad=repo.findById(adminId).get();
+		Admin ad=repo.findById(adminId).orElseThrow(()-> new AdminNotFoundException("Admin with this Id does not exist"));
 		if(repo.existsById(adminId)) {
 			repo.deleteById(adminId);
 			return ad ;
@@ -43,33 +49,31 @@ public class IAdminServiceImpl implements IAdminService{
 	}
 
 	@Override
-	public List<TripBooking> getAllTrips(int customerId) {
+	public List<TripBooking> getAllTrips() {
 		// TODO Auto-generated method stub
 		return tripRepo.findAll();
 	}
 
 	@Override
-	public List<TripBooking> getTripsCabwise(Cab cab) {
+	public List<TripBooking> getTripsCabwise(int cabId) {
 		// TODO Auto-generated method stub
-		return tripRepo.
+		return tripRepo.getTripsCabwise(cabId);
 	}
 
 	@Override
-	public List<TripBooking> getTripsCustomerwise() {
+	public List<TripBooking> getTripsCustomerwise(int customerId) {
 		// TODO Auto-generated method stub
-		return null;
+		return tripRepo.getTripsCustomerwise(customerId);
 	}
 
 	@Override
-	public List<TripBooking> getTripsDatewise() {
+	public List<TripBooking> getTripsDatewise(LocalDateTime from, LocalDateTime to) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<TripBooking> getAllTripsForDays(int customerId, LocalDateTime fromDate, LocalDateTime toDate) {
-		// TODO Auto-generated method stub
-		return null;
+	    Timestamp d1=Timestamp.valueOf(from);
+	    Timestamp d2=Timestamp.valueOf(to);
+	    
+		return tripRepo.getTripsDatewise(d1,d2);
+		
 	}
 
 

@@ -1,8 +1,9 @@
 package com.repository;
 
 import java.util.List;
-
+import java.sql.Timestamp;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.entities.TripBooking;
 
@@ -12,4 +13,11 @@ public interface ITripBookingRepository extends JpaRepository<TripBooking,Intege
 	public TripBooking deleteTripBooking(TripBooking tripBooking);
 	public List<TripBooking> viewAllTripsCustomer(int customerId);
 	public TripBooking calculateBill(int customerId);
+	
+	@Query(value="select p from TripBooking p where p.cabId=?1")
+	public List<TripBooking> getTripsCabwise(int cabId);
+	@Query(value="select p form TripBooking p where p.customerId=?1")
+	public List<TripBooking> getTripsCustomerwise(int customerId);
+	@Query(value="select p from TripBooking p where p.fromDateTime=?1 and p.toDateTime=?2")
+	public List<TripBooking> getTripsDatewise(Timestamp date1,Timestamp date2);
 }
