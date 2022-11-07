@@ -41,7 +41,7 @@ public class ICabServiceController {
 	}
 	
 	@GetMapping(path="/cab/countBy/{carType}")
-	public int countCabsOfType(String carType) {
+	public int countCabsOfType(@PathVariable String carType) {
 		return cabService.countCabsOfType(carType);
 	}
 	
