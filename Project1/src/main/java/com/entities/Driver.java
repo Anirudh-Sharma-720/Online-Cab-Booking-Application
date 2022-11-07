@@ -1,10 +1,20 @@
 package com.entities;
 
+import javax.persistence.*;
+
+@Entity
 public class Driver extends AbstractUser {
+	@Id
+	@Column(name="driver_id")
 	private int driverId;
+	@Column(name="license_no")
 	private String licenseNo;
+	@Column(name="cab")
 	private Cab cab;
+	@Column(name="rating")
 	private float rating;
+	
+	
 	public int getDriverId() {
 		return driverId;
 	}
