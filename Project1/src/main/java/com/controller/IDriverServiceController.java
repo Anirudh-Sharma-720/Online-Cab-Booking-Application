@@ -9,9 +9,9 @@ import com.entities.Driver;
 import com.exception.DriverNotFoundException;
 import com.service.IDriverService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/service/")
+@RequestMapping("/drivers/")
 public class IDriverServiceController {
 	@Autowired
 	private IDriverService driverService;
@@ -27,27 +27,27 @@ public class IDriverServiceController {
 	 * 
 	 * */
 	
-	@PostMapping("/drivers")
+	@PostMapping("/insert")
 	public Driver insertDriver(@RequestBody Driver driver) {
 		return driverService.insertDriver(driver);
 	}
 	
-	@PutMapping("/drivers/update/{driverId}")
+	@PutMapping("/update/{driverId}")
 	public Driver updateDriver(@PathVariable("driverId") int driverId, @RequestBody Driver driver) throws DriverNotFoundException {
 		return driverService.updateDriver(driverId, driver);
 	}
 	
-	@DeleteMapping("/drivers/delete/{driverId}")
+	@DeleteMapping("/delete/{driverId}")
 	public Driver deleteDriver(@PathVariable("driverId") int driverId) throws DriverNotFoundException{
 		return driverService.deleteDriver(driverId);
 	}
 	
-	@GetMapping("/drivers/view/{driverId}")
+	@GetMapping("/view/{driverId}")
 	public Driver viewDriver(@PathVariable("driverId") int driverId) throws DriverNotFoundException {
 		return driverService.viewDriver(driverId);
 	}
 	
-	@GetMapping("/drivers/viewBest")
+	@GetMapping("/viewBest")
 	public List<Driver> viewBestDrivers() throws DriverNotFoundException{
 		return driverService.viewBestDrivers();
 	}

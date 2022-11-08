@@ -1,9 +1,16 @@
 package com.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="cab")
 public class Cab {
+	@Id
+	@GeneratedValue
 	private int cabId;
 	private String carType;
 	private float perKmRate;
+	
 	public int getCabId() {
 		return cabId;
 	}

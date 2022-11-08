@@ -6,10 +6,12 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.entities.Driver;
 import com.exception.DriverNotFoundException;
 
+@Repository
 public interface IDriverRepository extends JpaRepository<Driver, Integer>{
 	public Driver insertDriver(Driver driver);
 	public Driver updateDriver(int driverId,Driver driver)throws DriverNotFoundException;

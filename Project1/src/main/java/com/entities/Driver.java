@@ -3,15 +3,13 @@ package com.entities;
 import javax.persistence.*;
 
 @Entity
+@Table(name="driver")
 public class Driver extends AbstractUser {
 	@Id
-	@Column(name="driver_id")
 	private int driverId;
-	@Column(name="license_no")
 	private String licenseNo;
-	@Column(name="cab")
+	@OneToOne(cascade = CascadeType.ALL)
 	private Cab cab;
-	@Column(name="rating")
 	private float rating;
 	
 	
