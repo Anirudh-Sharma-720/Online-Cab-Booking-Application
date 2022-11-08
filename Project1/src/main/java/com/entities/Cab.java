@@ -1,10 +1,13 @@
 package com.entities;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name="cab_Table")
+@Table(name="cab_table")
 public class Cab {
+	
 	@Id
 	private int cabId;
 	private String carType;

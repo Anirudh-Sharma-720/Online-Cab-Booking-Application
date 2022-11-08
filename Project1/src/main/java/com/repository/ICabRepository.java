@@ -26,9 +26,9 @@ public interface ICabRepository extends JpaRepository<Cab, Integer>{
 	@Transactional
 	@Query(value="update Cab set carType=?1 where cabId=?2")
 	public int updateCab(String carType, int cabId) throws CabNotFoundException;
-	
-	public Cab insertCab(Cab cab);
-	public Cab deleteCab(int cabId) throws CabNotFoundException;
-	public List<Cab> viewCabsOfType(String carType) throws CabNotFoundException;
-	public int countCabsOfType(String carType);
+
+//	public Cab insertCab(Cab cab);
+//	public Cab deleteCab(int cabId) throws CabNotFoundException;
+//	public List<Cab> viewCabsOfType(String carType) throws CabNotFoundException;
+//	public int countCabsOfType(String carType);
 }

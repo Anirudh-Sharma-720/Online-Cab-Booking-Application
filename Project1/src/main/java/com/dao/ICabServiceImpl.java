@@ -11,7 +11,7 @@ import com.repository.ICabRepository;
 import com.service.ICabService;
 
 @Service
-public abstract class ICabServiceImpl implements ICabService{
+public class ICabServiceImpl implements ICabService{
 	@Autowired
 	private ICabRepository cabRepository;
 	
