@@ -1,5 +1,71 @@
 package com.dao;
 
-public class ITripServiceImpl {
+import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.entities.Driver;
+import com.entities.TripBooking;
+//import com.exception.DriverNotFoundException;
+import com.repository.ITripBookingRepository;
+import com.service.ITripBookingService;
+
+@Service
+public class ITripServiceImpl implements ITripBookingService{
+	@Autowired
+	private ITripBookingRepository tripBookingRepository;
+
+	@Override
+	public TripBooking insertTripBooking(TripBooking tripBooking) {
+		TripBooking tripBookingObj = tripBookingRepository.save(tripBooking);
+		return tripBookingObj;
+	}
+
+	@Override
+	public TripBooking updateTripBooking(int tripBookingId, TripBooking tripBooking){
+		TripBooking tripBookingObj = tripBookingRepository.findById(tripBookingId).get();
+		tripBookingObj.setCustomerId(tripBooking.getCustomerId());
+		tripBookingObj.setDriver(tripBooking.getDriver());
+		tripBookingObj.setFromLocation(tripBooking.getFromLocation());
+		tripBookingObj.setToLocation(tripBooking.getToLocation());
+		tripBookingObj.setFromDateTime(tripBooking.getFromDateTime());
+		tripBookingObj.setToDateTime(tripBooking.getToDateTime());
+		tripBookingObj.setStatus(tripBooking.isStatus());
+		tripBookingObj.setDistanceInKm(tripBooking.getDistanceInKm());
+		tripBookingObj.setBill(tripBooking.getBill());
+		
+		tripBookingRepository.deleteById(tripBookingId);
+		TripBooking updatedTripBooking = tripBookingRepository.save(tripBookingObj);
+		return updatedTripBooking;
+	}
+
+	@Override
+	public TripBooking deleteTripBooking(int tripBookingId){
+		 
+		TripBooking tripBookingObj = tripBookingRepository.findById(tripBookingId).get();
+		if(tripBookingRepository.existsById(tripBookingId))
+			tripBookingRepository.deleteById(tripBookingId);
+		return tripBookingObj;
+	}
+
+	@Override
+	public List<TripBooking> viewAllTripsCustomer(int customerId){
+		List<TripBooking> bestTripsCustomer = tripBookingRepository.viewAllTripsCustomer(customerId);
+		return bestTripsCustomer;
+	}
+
+	//@Override
+	public Driver viewDriver(int tripBookingId){
+		TripBooking tripBookingObj = tripBookingRepository.findById(tripBookingId).get();
+		return tripBookingObj.getDriver();
+	}
+
+
+	@Override
+	public float calculateBill(int customerId) {
+		// TODO Auto-generated method stub
+		
+	}
 }

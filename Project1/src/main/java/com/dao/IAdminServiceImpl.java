@@ -25,12 +25,12 @@ public class IAdminServiceImpl implements IAdminService{
 	}
 
 	@Override
-	public Admin updateAdminName(Admin admin,String name) throws AdminNotFoundException{
+	public Admin updateAdminName(int AdminId,String name) throws AdminNotFoundException{
 		// TODO Auto-generated method stub
-		Admin adminObj = repo.findById(admin.getAdminId()).orElseThrow(()->new AdminNotFoundException("Admin with that id does not exist"));
-		admin.setUsername(name);
-		if(repo.existsById(admin.getAdminId())) {
-			repo.deleteById(admin.getAdminId());
+		Admin adminObj = repo.findById(AdminId).orElseThrow(()->new AdminNotFoundException("Admin with that id does not exist"));
+		adminObj.setUsername(name);
+		if(repo.existsById(AdminId)) {
+			repo.deleteById(AdminId);
 		
 		}
 		return repo.save(adminObj);
@@ -47,6 +47,11 @@ public class IAdminServiceImpl implements IAdminService{
 		}
 		return null;
 	}
+	@Override
+	public List<Admin> getAllAdmins() {
+		// TODO Auto-generated method stub
+		return repo.findAll();
+	}
 
 	@Override
 	public List<TripBooking> getAllTrips() {
@@ -60,11 +65,11 @@ public class IAdminServiceImpl implements IAdminService{
 		return tripRepo.getTripsCabwise(cabId);
 	}
 
-	@Override
-	public List<TripBooking> getTripsCustomerwise(int customerId) {
-		// TODO Auto-generated method stub
-		return tripRepo.getTripsCustomerwise(customerId);
-	}
+//	@Override
+//	public List<TripBooking> getTripsCustomerwise(int customerId) {
+//		// TODO Auto-generated method stub
+//		return tripRepo.getTripsCustomerwise(customerId);
+//	}
 
 	@Override
 	public List<TripBooking> getTripsDatewise(LocalDateTime from, LocalDateTime to) {

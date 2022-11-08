@@ -11,6 +11,7 @@ public class TripBooking {
 	@GeneratedValue
 	private int tripBookingId;
 	private int customerId;
+	@OneToOne
 	private Driver driver;
 	private int cabId;
 
