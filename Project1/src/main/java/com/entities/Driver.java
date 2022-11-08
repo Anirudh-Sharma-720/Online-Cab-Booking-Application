@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="driver")
 public class Driver extends AbstractUser {
-	@Id
+	
 	private int driverId;
 	private String licenseNo;
 	@OneToOne(cascade = CascadeType.ALL)
