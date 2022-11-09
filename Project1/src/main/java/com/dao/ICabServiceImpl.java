@@ -16,15 +16,22 @@ public class ICabServiceImpl implements ICabService{
 	private ICabRepository cabRepository;
 	
 	@Override
+	public List<Cab> viewAllCabs() {
+		return cabRepository.findAll();
+	}
+	
+	@Override
 	public Cab insertCab(Cab cab) {
 		return cabRepository.save(cab);
 	}
 
 	@Override
-	public int updateCab(String carType, int cabId) throws CabNotFoundException {
+	public Cab updateCab(int cabId, Cab cab) throws CabNotFoundException {
 		Cab cabObj = cabRepository.findById(cabId).orElseThrow(()->new CabNotFoundException("Cab does not exist with that Id"));
-		int status = cabRepository.updateCab(carType,cabId);
-		return status;
+		cabObj.setCarType(cab.getCarType());
+		cabObj.setPerKmRate(cab.getPerKmRate());
+		Cab updatedCabObj = cabRepository.save(cabObj);
+		return updatedCabObj;
 	}
 
 	@Override

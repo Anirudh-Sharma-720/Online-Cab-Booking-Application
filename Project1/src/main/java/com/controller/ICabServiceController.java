@@ -3,7 +3,7 @@ package com.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,20 +16,25 @@ import com.entities.Cab;
 import com.exception.CabNotFoundException;
 import com.service.ICabService;
 
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RestController
 public class ICabServiceController {
 	@Autowired
 	private ICabService cabService;
+	
+	@GetMapping(path="/cab/viewAll")
+    public List<Cab> viewAllCabs() {
+		return cabService.viewAllCabs();
+    }
 	
 	@PostMapping("/cab/insert")
 	public Cab insertCab(@RequestBody Cab cab) {
 		return cabService.insertCab(cab);
 	}
 	
-	@PutMapping(path="/cab/update/{cabId}/{carType}")
-	   public int updateCab(@PathVariable("carType") String carType, @PathVariable("cabId") int cabId) throws CabNotFoundException {
-		   return cabService.updateCab(carType,cabId);
+	@PutMapping(path="/cab/update/{cabId}")
+	   public Cab updateCab(@PathVariable("cabId") int cabId, @RequestBody Cab cab) throws CabNotFoundException {
+		   return cabService.updateCab(cabId, cab);
 	}
 	
 	@DeleteMapping("/cab/delete/{cabId}")
