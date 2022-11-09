@@ -1,8 +1,15 @@
 package com.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="driver_table")
 public class Driver extends AbstractUser {
+//	@Id
+//	@GeneratedValue
 	private int driverId;
 	private String licenseNo;
+	@OneToOne
 	private Cab cab;
 	private float rating;
 	public int getDriverId() {
