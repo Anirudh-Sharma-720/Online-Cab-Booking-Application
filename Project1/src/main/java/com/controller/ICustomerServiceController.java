@@ -62,8 +62,9 @@ public class ICustomerServiceController {
 	
 	//6. Validate customer
 	@GetMapping("/customers/validate/{userName}&{password}")
-	public Customer validateCustomer(@PathVariable String userName,@PathVariable String password) throws CustomerNotFoundException, InvalidLoginException {
-		return customerService.validateCustomer(userName, password);
+	public ResponseEntity<Customer> validateCustomer(@PathVariable String userName,@PathVariable String password) throws CustomerNotFoundException, InvalidLoginException {
+		Customer customer = customerService.validateCustomer(userName, password);
+		return ResponseEntity.ok(customer);
 	}
 	
 	
