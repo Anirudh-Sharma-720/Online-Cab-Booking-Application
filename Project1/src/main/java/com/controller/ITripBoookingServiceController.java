@@ -36,6 +36,10 @@ public List<TripBooking> getAllTripsCustomerwise(@PathVariable int id){
 public Driver viewDriver(@PathVariable int id){
 	return serv.viewDriver(id);
 }
+@GetMapping("trip/cab/{id}")
+public List<TripBooking> viewTripsCabwise(@PathVariable int id){
+	return serv.viewTripsCabwise(id);
+}
 
 
 }

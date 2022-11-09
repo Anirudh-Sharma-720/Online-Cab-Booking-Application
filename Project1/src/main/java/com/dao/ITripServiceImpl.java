@@ -64,8 +64,14 @@ public class ITripServiceImpl implements ITripBookingService{
 
 
 	@Override
-	public float calculateBill(int customerId) {
+	public float calculateBill(int tripId) {
 		// TODO Auto-generated method stub
-		
+		TripBooking trip=tripBookingRepository.findById(tripId).get();
+		float bill=trip.getDistanceInKm()*trip.getCab().getPerKmRate();
+		return bill;
+	}
+	public List<TripBooking> viewTripsCabwise(int cabId){
+		return tripBookingRepository.getTripsCabwise(cabId);
+	
 	}
 }

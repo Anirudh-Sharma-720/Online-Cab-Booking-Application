@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+import com.entities.Cab;
 import com.entities.TripBooking;
 @Repository
 public interface ITripBookingRepository extends JpaRepository<TripBooking,Integer>{
@@ -19,8 +20,7 @@ public interface ITripBookingRepository extends JpaRepository<TripBooking,Intege
 //	public TripBooking calculateBill(int customerId);
 	@Query(value="select p from TripBooking p where p.tripBookingId=?1")
 	public List<TripBooking> viewDriver(int tripId);
-
-	@Query(value="select p from TripBooking p where p.cabId=?1")
+	@Query(value="select p from TripBooking p where p.cab.cabId=?1")
 	public List<TripBooking> getTripsCabwise(int cabId);
 	@Query(value="select p from TripBooking p where p.customerId=?1")
 	public List<TripBooking> getTripsCustomerwise(int customerId);

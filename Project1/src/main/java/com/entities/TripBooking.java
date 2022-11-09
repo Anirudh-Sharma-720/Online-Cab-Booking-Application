@@ -13,13 +13,15 @@ public class TripBooking {
 	private int customerId;
 	@OneToOne
 	private Driver driver;
-	private int cabId;
+	@ManyToOne
+	private Cab cab;
 
-	public int getCabId() {
-		return cabId;
+
+	public Cab getCab() {
+		return cab;
 	}
-	public void setCabId(int cabId) {
-		this.cabId = cabId;
+	public void setCab(Cab cab) {
+		this.cab = cab;
 	}
 	private String fromLocation;
 	private String toLocation;
