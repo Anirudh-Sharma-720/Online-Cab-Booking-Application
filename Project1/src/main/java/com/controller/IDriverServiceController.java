@@ -2,6 +2,7 @@ package com.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +10,8 @@ import com.entities.Driver;
 import com.exception.DriverNotFoundException;
 import com.service.IDriverService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/drivers/")
 public class IDriverServiceController {
@@ -27,30 +29,37 @@ public class IDriverServiceController {
 	 * 
 	 * */
 	
-	@PostMapping("/insert")
+	@PostMapping("/driver/insert")
 	public Driver insertDriver(@RequestBody Driver driver) {
 		return driverService.insertDriver(driver);
 	}
 	
-	@PutMapping("/update/{driverId}")
-	public Driver updateDriver(@PathVariable("driverId") int driverId, @RequestBody Driver driver) throws DriverNotFoundException {
-		return driverService.updateDriver(driverId, driver);
+	@PutMapping("/driver/update/{userId}")
+	public Driver updateDriver(@PathVariable("userId") int userId, @RequestBody Driver driver) throws DriverNotFoundException {
+		return driverService.updateDriver(userId, driver);
 	}
 	
-	@DeleteMapping("/delete/{driverId}")
-	public Driver deleteDriver(@PathVariable("driverId") int driverId) throws DriverNotFoundException{
-		return driverService.deleteDriver(driverId);
+	@DeleteMapping("/driver/delete/{userId}")
+	public Driver deleteDriver(@PathVariable("userId") int userId) throws DriverNotFoundException{
+		return driverService.deleteDriver(userId);
 	}
 	
-	@GetMapping("/view/{driverId}")
-	public Driver viewDriver(@PathVariable("driverId") int driverId) throws DriverNotFoundException {
-		return driverService.viewDriver(driverId);
+	@GetMapping("/driver/view/{userId}")
+	public Driver viewDriver(@PathVariable("userId") int userId) throws DriverNotFoundException {
+		return driverService.viewDriver(userId);
 	}
 	
-	@GetMapping("/viewBest")
+	@GetMapping("driver/viewBest")
 	public List<Driver> viewBestDrivers() throws DriverNotFoundException{
 		return driverService.viewBestDrivers();
 	}
+	
+	@GetMapping("driver/viewAll")
+	public List<Driver> viewAll() throws DriverNotFoundException{
+		return driverService.viewAll();
+	}
+	
+	
 	
 	
 	

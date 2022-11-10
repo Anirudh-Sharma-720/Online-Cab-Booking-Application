@@ -1,6 +1,20 @@
 package com.entities;
+import javax.persistence.*;
 
-public abstract class AbstractUser {
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Table(name="user_table")
+public class AbstractUser {
+	@Id
+	@GeneratedValue
+	private int userId;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	private String username;
 	private String password;
 	private String mobileNumber;

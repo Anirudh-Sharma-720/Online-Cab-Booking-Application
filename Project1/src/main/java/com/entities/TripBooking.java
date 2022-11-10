@@ -2,10 +2,27 @@ package com.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.*;
+@Entity
+@Table(name="tripBooking_table")
 public class TripBooking {
+	@Id
+	@GeneratedValue
 	private int tripBookingId;
 	private int customerId;
+	@OneToOne
 	private Driver driver;
+	@ManyToOne
+	private Cab cab;
+
+
+	public Cab getCab() {
+		return cab;
+	}
+	public void setCab(Cab cab) {
+		this.cab = cab;
+	}
 	private String fromLocation;
 	private String toLocation;
 	private LocalDateTime fromDateTime;

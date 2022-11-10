@@ -1,8 +1,6 @@
 package com.dao;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,20 +21,21 @@ public class IDriverServiceImpl implements IDriverService{
 	}
 
 	@Override
-	public Driver updateDriver(int driverId, Driver driver) throws DriverNotFoundException {
-		Driver driverObj = driverRepository.findById(driverId).orElseThrow(()->new DriverNotFoundException("Driver with that id does not exist"));
+	public Driver updateDriver(int userId, Driver driver) throws DriverNotFoundException {
+		Driver driverObj = driverRepository.findById(userId).orElseThrow(()->new DriverNotFoundException("Driver with that id does not exist"));
 		driverObj.setCab(driver.getCab());
 		driverObj.setLicenseNo(driver.getLicenseNo());
 		driverObj.setRating(driver.getRating());
+		driverObj.setMobileNumber(driver.getMobileNumber());
+		driverRepository.deleteById(userId);
 		Driver updatedDriver = driverRepository.save(driverObj);
 		return updatedDriver;
 	}
 
 	@Override
-	public Driver deleteDriver(int driverId) throws DriverNotFoundException {
-		 
-		Driver driverObj = driverRepository.findById(driverId).orElseThrow(()->new DriverNotFoundException("Driver with that id does not exist"));
-		driverRepository.deleteById(driverId);
+	public Driver deleteDriver(int userId) throws DriverNotFoundException { 
+		Driver driverObj = driverRepository.findById(userId).orElseThrow(()->new DriverNotFoundException("Driver with that id does not exist"));
+		driverRepository.deleteById(userId);
 		return driverObj;
 	}
 
@@ -47,9 +46,17 @@ public class IDriverServiceImpl implements IDriverService{
 	}
 
 	@Override
-	public Driver viewDriver(int driverId) throws DriverNotFoundException {
-		Driver driverObj = driverRepository.findById(driverId).orElseThrow(()->new DriverNotFoundException("Driver with that id does not exist"));
+	public Driver viewDriver(int userId) throws DriverNotFoundException {
+		Driver driverObj = driverRepository.findById(userId).orElseThrow(()->new DriverNotFoundException("Driver with that id does not exist"));
 		return driverObj;
 	}
+
+	@Override
+	public List<Driver> viewAll() throws DriverNotFoundException {
+		List<Driver> list = driverRepository.findAll();
+		return list;
+	}
+	
+	
 
 }
