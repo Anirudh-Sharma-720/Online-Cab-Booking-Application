@@ -1,11 +1,11 @@
 package com.entities;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="admin_table")
 public class Admin extends AbstractUser {
-//	@Id
-//	@GeneratedValue
+	@NotNull(message="Admin Id cannot be null")
 	private int adminId;
 
 	public int getAdminId() {

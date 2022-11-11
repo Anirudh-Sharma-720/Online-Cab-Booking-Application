@@ -1,5 +1,6 @@
 package com.entities;
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 
 @Entity
@@ -15,10 +16,18 @@ public class AbstractUser {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	@NotNull(message="username cannot be null")
+	@NotBlank(message="username cannot be blank")
 	private String username;
+	@NotNull(message="password cannot be null")
+	@NotBlank(message="password cannot be blank")
 	private String password;
+	@NotNull(message="mobile number cannot be null")
+	@Pattern(regexp="(^$|[0-9]{10})", message="Please provide a valid mobile number")
 	private String mobileNumber;
+	@Pattern(regexp="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$", message="Please provide a valid email address")
 	private String email;
+	
 	public String getUsername() {
 		return username;
 	}
