@@ -10,26 +10,32 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entities.Cab;
 import com.exception.CabNotFoundException;
 import com.service.ICabService;
-
-@CrossOrigin("*")
 @RestController
+@CrossOrigin("*")
+@RequestMapping("/cab/v1/")
 public class ICabServiceController {
 	@Autowired
 	private ICabService cabService;
+	
+	@GetMapping(path="/cab/viewAll")
+    public List<Cab> viewAllCabs() {
+		return cabService.viewAllCabs();
+    }
 	
 	@PostMapping("/cab/insert")
 	public Cab insertCab(@RequestBody Cab cab) {
 		return cabService.insertCab(cab);
 	}
 	
-	@PutMapping(path="/cab/update/{cabId}/{carType}")
-	   public int updateCab(@PathVariable("carType") String carType, @PathVariable("cabId") int cabId) throws CabNotFoundException {
-		   return cabService.updateCab(carType,cabId);
+	@PutMapping(path="/cab/update/{cabId}")
+	   public Cab updateCab(@PathVariable("cabId") int cabId, @RequestBody Cab cab) throws CabNotFoundException {
+		   return cabService.updateCab(cabId, cab);
 	}
 	
 	@DeleteMapping("/cab/delete/{cabId}")

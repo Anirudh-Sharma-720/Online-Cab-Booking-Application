@@ -3,6 +3,9 @@ package com.entities;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 @Entity
 @Table(name="tripBooking_table")
@@ -13,7 +16,7 @@ public class TripBooking {
 	private int customerId;
 	@OneToOne
 	private Driver driver;
-	@ManyToOne
+	@OneToOne
 	private Cab cab;
 
 
@@ -25,6 +28,7 @@ public class TripBooking {
 	}
 	private String fromLocation;
 	private String toLocation;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private LocalDateTime fromDateTime;
 	private LocalDateTime toDateTime;
 	private boolean status;

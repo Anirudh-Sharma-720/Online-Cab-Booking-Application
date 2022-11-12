@@ -22,5 +22,5 @@ public interface IDriverRepository extends JpaRepository<Driver, Integer>{
 	
 	@Transactional
 	@Query(value="select u from Driver u where rating=5")
-	public List<Driver>viewBestDrivers();
+	public List<Driver>viewBestDrivers() throws DriverNotFoundException;
 }

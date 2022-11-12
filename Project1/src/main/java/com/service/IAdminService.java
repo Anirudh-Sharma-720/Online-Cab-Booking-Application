@@ -8,7 +8,7 @@ import com.entities.TripBooking;
 import com.entities.*;
 public interface IAdminService {
 	public Admin insertAdmin(Admin admin);
-	public Admin updateAdminName(int adminId,String name) throws AdminNotFoundException;
+	public Admin updateAdmin(int adminId,Admin admin) throws AdminNotFoundException;
 	public Admin deleteAdmin(int adminId) throws AdminNotFoundException;
 	public List<TripBooking> getAllTrips();
 	public List<TripBooking> getTripsCabwise(int cabId);

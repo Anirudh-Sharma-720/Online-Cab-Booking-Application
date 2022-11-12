@@ -11,4 +11,5 @@ public interface IDriverService {
 	public Driver deleteDriver(int driverId) throws DriverNotFoundException;
 	public List<Driver>viewBestDrivers() throws DriverNotFoundException;
 	public Driver viewDriver(int driverId) throws DriverNotFoundException;
+	public List<Driver> viewAll() throws DriverNotFoundException;
 }

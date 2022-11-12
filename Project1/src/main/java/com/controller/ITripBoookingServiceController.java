@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 @RestController
 @CrossOrigin("*")
+@RequestMapping("/trip/v1/")
 public class ITripBoookingServiceController {
 @Autowired
 private ITripServiceImpl serv;
@@ -23,23 +24,29 @@ public TripBooking updateAdminName(@PathVariable("id") int id,@PathVariable("tri
 	return serv.updateTripBooking(id, trip);
 }
 
-@DeleteMapping("trip/delete/{id}")
+@DeleteMapping("/trip/delete/{id}")
 public TripBooking deleteAdmin(@PathVariable int id)  {
 	return serv.deleteTripBooking(id);
 }
 
-@GetMapping("trips/customer/{id}")
+@GetMapping("/trips/customer/{id}")
 public List<TripBooking> getAllTripsCustomerwise(@PathVariable int id){
 	return serv.viewAllTripsCustomer(id);
 }
-@GetMapping("trip/driver/{id}")
+@GetMapping("/trip/driver/{id}")
 public Driver viewDriver(@PathVariable int id){
 	return serv.viewDriver(id);
 }
-@GetMapping("trip/cab/{id}")
+@GetMapping("/trip/cab/{id}")
 public List<TripBooking> viewTripsCabwise(@PathVariable int id){
 	return serv.viewTripsCabwise(id);
 }
-
-
+@GetMapping("/trip/getAll")
+public List<TripBooking> getAllTrips(){
+	return serv.getAllTrips();
+}
+@GetMapping("/trip/getById/{id}")
+public TripBooking getTripById(@PathVariable int id) {
+	return serv.getTripById(id);
+}
 }

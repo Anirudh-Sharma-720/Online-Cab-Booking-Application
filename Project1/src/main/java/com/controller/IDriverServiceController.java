@@ -9,9 +9,9 @@ import com.entities.Driver;
 import com.exception.DriverNotFoundException;
 import com.service.IDriverService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/drivers/")
+@RequestMapping("/driver/v1/")
 public class IDriverServiceController {
 	@Autowired
 	private IDriverService driverService;
@@ -27,24 +27,25 @@ public class IDriverServiceController {
 	 * 
 	 * */
 	
+
 	@PostMapping("/driver/insert")
 	public Driver insertDriver(@RequestBody Driver driver) {
 		return driverService.insertDriver(driver);
 	}
 	
-	@PutMapping("/driver/update/{driverId}")
-	public Driver updateDriver(@PathVariable("driverId") int driverId, @RequestBody Driver driver) throws DriverNotFoundException {
-		return driverService.updateDriver(driverId, driver);
+	@PutMapping("/driver/update/{userId}")
+	public Driver updateDriver(@PathVariable("userId") int userId, @RequestBody Driver driver) throws DriverNotFoundException {
+		return driverService.updateDriver(userId, driver);
 	}
 	
-	@DeleteMapping("/driver/delete/{driverId}")
-	public Driver deleteDriver(@PathVariable("driverId") int driverId) throws DriverNotFoundException{
-		return driverService.deleteDriver(driverId);
+	@DeleteMapping("/driver/delete/{userId}")
+	public Driver deleteDriver(@PathVariable("userId") int userId) throws DriverNotFoundException{
+		return driverService.deleteDriver(userId);
 	}
 	
-	@GetMapping("/driver/view/{driverId}")
-	public Driver viewDriver(@PathVariable("driverId") int driverId) throws DriverNotFoundException {
-		return driverService.viewDriver(driverId);
+	@GetMapping("/driver/view/{userId}")
+	public Driver viewDriver(@PathVariable("userId") int userId) throws DriverNotFoundException {
+		return driverService.viewDriver(userId);
 	}
 	
 	@GetMapping("driver/viewBest")
@@ -52,7 +53,10 @@ public class IDriverServiceController {
 		return driverService.viewBestDrivers();
 	}
 	
-	
+	@GetMapping("driver/viewAll")
+	public List<Driver> viewAll() throws DriverNotFoundException{
+		return driverService.viewAll();
+	}
 	
 	
 

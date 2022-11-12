@@ -74,4 +74,9 @@ public class ITripServiceImpl implements ITripBookingService{
 		return tripBookingRepository.getTripsCabwise(cabId);
 	
 	}
+	public List<TripBooking> getAllTrips(){
+		return tripBookingRepository.findAll();	}
+	public TripBooking getTripById(int tripId){
+		return tripBookingRepository.findById(tripId).get();
+	}
 }

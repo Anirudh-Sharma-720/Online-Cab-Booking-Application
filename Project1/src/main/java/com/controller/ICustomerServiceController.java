@@ -20,7 +20,7 @@ import com.exception.InvalidLoginException;
 import com.service.ICustomerService;
 
 @RestController
-@RequestMapping("/service/customer-service/")
+@RequestMapping("/service/v1/")
 @CrossOrigin(origins = "*")
 public class ICustomerServiceController {
 	

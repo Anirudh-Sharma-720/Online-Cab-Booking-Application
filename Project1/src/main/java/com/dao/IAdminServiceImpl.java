@@ -25,14 +25,14 @@ public class IAdminServiceImpl implements IAdminService{
 	}
 
 	@Override
-	public Admin updateAdminName(int AdminId,String name) throws AdminNotFoundException{
+	public Admin updateAdmin(int AdminId,Admin admin) throws AdminNotFoundException{
 		// TODO Auto-generated method stub
 		Admin adminObj = repo.findById(AdminId).orElseThrow(()->new AdminNotFoundException("Admin with that id does not exist"));
-		adminObj.setUsername(name);
-		if(repo.existsById(AdminId)) {
-			repo.deleteById(AdminId);
+		adminObj.setUsername(admin.getUsername());
+		adminObj.setPassword(admin.getPassword());
+		adminObj.setMobileNumber(admin.getMobileNumber());
+		adminObj.setEmail(admin.getEmail());
 		
-		}
 		return repo.save(adminObj);
 	}
 
@@ -79,6 +79,9 @@ public class IAdminServiceImpl implements IAdminService{
 	    
 		return tripRepo.getTripsDatewise(d1,d2);
 		
+	}
+	public Admin getAdminById(int id) {
+		return repo.findById(id).get();
 	}
 
 

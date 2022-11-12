@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 @RestController
 @CrossOrigin("*")
+@RequestMapping("/admin/v1/")
 public class IAdminServiceController {
 	@Autowired
 private IAdminServiceImpl serv;
@@ -22,22 +23,22 @@ public Admin addAdmin(@RequestBody Admin admin) {
 	return serv.insertAdmin(admin);
 }
 
-@PutMapping("/admin/updateName/{id}/{name}")
-public Admin updateAdminName(@PathVariable("id") int id,@PathVariable("name") String name) throws AdminNotFoundException {
-	return serv.updateAdminName(id, name);
+@PutMapping("/admin/update/{id}")
+public Admin updateAdmin(@PathVariable("id") int id,@RequestBody Admin admin) throws AdminNotFoundException {
+	return serv.updateAdmin(id, admin);
 }
 
-@DeleteMapping("admin/delete/{id}")
+@DeleteMapping("/admin/delete/{id}")
 public Admin deleteAdmin(@PathVariable int id) throws AdminNotFoundException {
 	return serv.deleteAdmin(id);
 }
 
 
-@GetMapping("admin/getAll")
+@GetMapping("/admin/getAll")
 public List<Admin> getAllAdmins(){
 	return serv.getAllAdmins();
 }
-@GetMapping("trips/getAll")
+@GetMapping("/trips/getAll")
 public List<TripBooking> getAllTrips(){
 	return serv.getAllTrips();
 }
@@ -46,12 +47,16 @@ public List<TripBooking> getAllTrips(){
 //public List<TripBooking> getAllTripsCustomerwise(@PathVariable int id){
 //	return serv.getTripsCustomerwise(id);
 //}
-@GetMapping("trips/cab/{id}")
+@GetMapping("/trips/cab/{id}")
 public List<TripBooking> getAllTripsCabwise(@PathVariable int id){
 	return serv.getTripsCabwise(id);
 }
-@GetMapping("trips/cab/{from}/{to}")
+@GetMapping("/trips/cab/{from}/{to}")
 public List<TripBooking> getAllTripsDatewise(@PathVariable("from") LocalDateTime from,@PathVariable("to") LocalDateTime to){
 	return serv.getTripsDatewise(from,to);
+}
+@GetMapping("/admin/getById/{userId}")
+public Admin getAdminById(@PathVariable int userId) {
+	return serv.getAdminById(userId);
 }
 }
