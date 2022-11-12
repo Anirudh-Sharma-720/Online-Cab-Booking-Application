@@ -1,0 +1,75 @@
+2022-11-12 15:20:34 - Starting Project1Application using Java 17.0.4.1 on LIN51011319 with PID 5696 (C:\Users\gchintap\githubprojUpdated\Project1\Project1\target\classes started by gchintap in C:\Users\gchintap\githubprojUpdated\Project1\Project1)
+2022-11-12 15:20:34 - No active profile set, falling back to 1 default profile: "default"
+2022-11-12 15:20:34 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-11-12 15:20:34 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-11-12 15:20:35 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-12 15:20:36 - Finished Spring Data repository scanning in 147 ms. Found 5 JPA repository interfaces.
+2022-11-12 15:20:36 - Tomcat initialized with port(s): 2770 (http)
+2022-11-12 15:20:36 - Starting service [Tomcat]
+2022-11-12 15:20:36 - Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-12 15:20:36 - Initializing Spring embedded WebApplicationContext
+2022-11-12 15:20:36 - Root WebApplicationContext: initialization completed in 2025 ms
+2022-11-12 15:20:36 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-12 15:20:37 - HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-12 15:20:37 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-12 15:20:37 - HikariPool-1 - Starting...
+2022-11-12 15:20:37 - HikariPool-1 - Start completed.
+2022-11-12 15:20:37 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-11-12 15:20:38 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-12 15:20:38 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-12 15:20:38 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-12 15:20:39 - LiveReload server is running on port 35729
+2022-11-12 15:20:39 - Tomcat started on port(s): 2770 (http) with context path ''
+2022-11-12 15:20:39 - Started Project1Application in 5.078 seconds (JVM running for 5.959)
+2022-11-12 15:21:44 - Application shutdown requested.
+2022-11-12 15:21:44 - Stopping service [Tomcat]
+2022-11-12 15:21:44 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-12 15:21:44 - HikariPool-1 - Shutdown initiated...
+2022-11-12 15:21:44 - HikariPool-1 - Shutdown completed.
+2022-11-12 15:28:14 - Starting Project1Application using Java 17.0.4.1 on LIN51011319 with PID 12952 (C:\Users\gchintap\githubprojUpdated\Project1\Project1\target\classes started by gchintap in C:\Users\gchintap\githubprojUpdated\Project1\Project1)
+2022-11-12 15:28:14 - No active profile set, falling back to 1 default profile: "default"
+2022-11-12 15:28:14 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-11-12 15:28:14 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-11-12 15:28:14 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-12 15:28:15 - Finished Spring Data repository scanning in 141 ms. Found 5 JPA repository interfaces.
+2022-11-12 15:28:15 - Tomcat initialized with port(s): 2770 (http)
+2022-11-12 15:28:15 - Starting service [Tomcat]
+2022-11-12 15:28:15 - Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-12 15:28:15 - Initializing Spring embedded WebApplicationContext
+2022-11-12 15:28:15 - Root WebApplicationContext: initialization completed in 1542 ms
+2022-11-12 15:28:15 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-12 15:28:15 - HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-12 15:28:15 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-12 15:28:16 - HikariPool-1 - Starting...
+2022-11-12 15:28:16 - HikariPool-1 - Start completed.
+2022-11-12 15:28:16 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-11-12 15:28:16 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-12 15:28:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-12 15:28:17 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-12 15:28:17 - LiveReload server is running on port 35729
+2022-11-12 15:28:17 - Tomcat started on port(s): 2770 (http) with context path ''
+2022-11-12 15:28:17 - Started Project1Application in 4.084 seconds (JVM running for 4.814)
+2022-11-12 15:28:23 - Application shutdown requested.
+2022-11-12 15:28:23 - Stopping service [Tomcat]
+2022-11-12 15:28:23 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-12 15:28:23 - HikariPool-1 - Shutdown initiated...
+2022-11-12 15:28:23 - HikariPool-1 - Shutdown completed.
+2022-11-12 15:32:53 - Starting Project1Application using Java 17.0.4.1 on LIN51011319 with PID 15224 (C:\Users\gchintap\githubprojUpdated\Project1\Project1\target\classes started by gchintap in C:\Users\gchintap\githubprojUpdated\Project1\Project1)
+2022-11-12 15:32:53 - No active profile set, falling back to 1 default profile: "default"
+2022-11-12 15:32:53 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-11-12 15:32:53 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-11-12 15:32:54 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-12 15:32:54 - Finished Spring Data repository scanning in 147 ms. Found 5 JPA repository interfaces.
+2022-11-12 15:32:55 - Tomcat initialized with port(s): 2770 (http)
+2022-11-12 15:32:55 - Starting service [Tomcat]
+2022-11-12 15:32:55 - Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-12 15:32:55 - Initializing Spring embedded WebApplicationContext
+2022-11-12 15:32:55 - Root WebApplicationContext: initialization completed in 1509 ms
+2022-11-12 15:32:55 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-12 15:32:55 - HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-12 15:32:55 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-12 15:32:55 - HikariPool-1 - Starting...
+2022-11-12 15:32:55 - HikariPool-1 - Start completed.
+2022-11-12 15:32:55 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-11-12 15:32:56 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-12 15:32:56 - Initialized JPA EntityManagerFactory for persistence unit 'default'

@@ -1,7 +1,7 @@
 package com.exception;
 
 import java.time.LocalDateTime;
-public class ErrorMessage extends Exception {
+public class ErrorMessage{
 	private LocalDateTime date;
 	private String errorMsg;
 	private String validationMsg;

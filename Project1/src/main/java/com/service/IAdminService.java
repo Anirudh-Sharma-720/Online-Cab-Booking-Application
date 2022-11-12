@@ -3,10 +3,9 @@ import com.exception.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.entities.Admin;
-import com.entities.TripBooking;
 import com.entities.*;
 public interface IAdminService {
+	
 	public Admin insertAdmin(Admin admin);
 	public Admin updateAdmin(int adminId,Admin admin) throws AdminNotFoundException;
 	public Admin deleteAdmin(int adminId) throws AdminNotFoundException;
@@ -15,4 +14,5 @@ public interface IAdminService {
 	//public List<TripBooking> getTripsCustomerwise(int customerId);
 	public List<TripBooking> getTripsDatewise(LocalDateTime from,LocalDateTime to);
 	public List<Admin> getAllAdmins();
+	
 }

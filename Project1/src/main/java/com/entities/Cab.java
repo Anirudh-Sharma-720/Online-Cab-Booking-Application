@@ -1,16 +1,23 @@
 package com.entities;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 @Entity
 @Table(name="cab_table")
 public class Cab {
+	
 	@Id
-	@GeneratedValue
 	private int cabId;
+	
+	@NotNull(message="Car Type cannot be Empty")
 	private String carType;
+	
+	@NotNull(message="Rate per Km cannot be Empty")
 	private float perKmRate;
-//
+	
 //	@OneToMany(mappedBy="cab")
 //	private List<TripBooking> trips;
 //	public List<TripBooking> getTrips() {
@@ -19,6 +26,7 @@ public class Cab {
 //	public void setTrips(List<TripBooking> trips) {
 //		this.trips = trips;
 //	}
+	
 	public int getCabId() {
 		return cabId;
 	}

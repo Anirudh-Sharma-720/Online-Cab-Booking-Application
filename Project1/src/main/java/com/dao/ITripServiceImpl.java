@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.entities.Driver;
 import com.entities.TripBooking;
+import com.exception.TripBookingNotFoundException;
 //import com.exception.DriverNotFoundException;
 import com.repository.ITripBookingRepository;
 import com.service.ITripBookingService;
@@ -24,8 +25,8 @@ public class ITripServiceImpl implements ITripBookingService{
 	}
 
 	@Override
-	public TripBooking updateTripBooking(int tripBookingId, TripBooking tripBooking){
-		TripBooking tripBookingObj = tripBookingRepository.findById(tripBookingId).get();
+	public TripBooking updateTripBooking(int tripBookingId, TripBooking tripBooking) throws TripBookingNotFoundException {
+		TripBooking tripBookingObj = tripBookingRepository.findById(tripBookingId).orElseThrow(()->new TripBookingNotFoundException("Trip Booking does not exist with that Id"));
 		tripBookingObj.setCustomerId(tripBooking.getCustomerId());
 		tripBookingObj.setDriver(tripBooking.getDriver());
 		tripBookingObj.setFromLocation(tripBooking.getFromLocation());
@@ -42,16 +43,16 @@ public class ITripServiceImpl implements ITripBookingService{
 	}
 
 	@Override
-	public TripBooking deleteTripBooking(int tripBookingId){
+	public TripBooking deleteTripBooking(int tripBookingId) throws TripBookingNotFoundException {
 		 
-		TripBooking tripBookingObj = tripBookingRepository.findById(tripBookingId).get();
+		TripBooking tripBookingObj = tripBookingRepository.findById(tripBookingId).orElseThrow(()->new TripBookingNotFoundException("Trip Booking does not exist with that Id"));
 		if(tripBookingRepository.existsById(tripBookingId))
 			tripBookingRepository.deleteById(tripBookingId);
 		return tripBookingObj;
 	}
 
 	@Override
-	public List<TripBooking> viewAllTripsCustomer(int customerId){
+	public List<TripBooking> viewAllTripsCustomer(int customerId) throws TripBookingNotFoundException {
 		List<TripBooking> bestTripsCustomer = tripBookingRepository.viewAllTripsCustomer(customerId);
 		return bestTripsCustomer;
 	}

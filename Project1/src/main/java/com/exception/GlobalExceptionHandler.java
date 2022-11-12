@@ -11,13 +11,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.exception.AdminNotFoundException;
-import com.exception.CabNotFoundException;
-import com.exception.CustomerNotFoundException;
-import com.exception.DriverNotFoundException;
-import com.exception.ErrorMessage;
-import com.exception.InvalidLoginException;
-
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
@@ -61,6 +54,7 @@ public class GlobalExceptionHandler {
 		});
 		return new ResponseEntity<Object>(errors, HttpStatus.BAD_REQUEST);
 	}
+	
 	@ExceptionHandler(TripBookingNotFoundException.class)
 	public @ResponseBody ErrorMessage checkTripBookingNotFoundException(TripBookingNotFoundException de) {
 		ErrorMessage driverError = new ErrorMessage(LocalDateTime.now(), de.getMessage());

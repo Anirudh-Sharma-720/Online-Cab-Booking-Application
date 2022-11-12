@@ -3,6 +3,7 @@ package com.entities;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -13,27 +14,37 @@ public class TripBooking {
 	@Id
 	@GeneratedValue
 	private int tripBookingId;
+	
+	@NotNull(message="Customer Id cannot be Empty")
 	private int customerId;
+	
 	@OneToOne
 	private Driver driver;
+	
+	@NotNull(message="Please provide Cab details for trip Booking")
 	@OneToOne
 	private Cab cab;
-
-
 	public Cab getCab() {
 		return cab;
 	}
 	public void setCab(Cab cab) {
 		this.cab = cab;
 	}
+	
+	@NotNull(message="From Location cannot be Empty")
 	private String fromLocation;
+	
+	@NotNull(message="Destination Location cannot be Empty")
 	private String toLocation;
+	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private LocalDateTime fromDateTime;
 	private LocalDateTime toDateTime;
+	
 	private boolean status;
 	private float distanceInKm;
 	private float bill;
+	
 	public int getTripBookingId() {
 		return tripBookingId;
 	}
